@@ -26,11 +26,15 @@ function extractSpotCodes(svgText) {
     var match;
 
     while ((match = regex.exec(svgText)) !== null) {
-        spots.push(match[1]);
+        spots.push(match[1] || match[2]);
     }
 
     return spots;
 }
+
+/* ============================= */
+/* CREATE SERVER */
+/* ============================= */
 
 var server = http.createServer(function (req, res) {
 
@@ -52,7 +56,7 @@ var server = http.createServer(function (req, res) {
                 fetchText(url, function (err, svgText) {
 
                     if (err) {
-                        res.writeHead(500);
+                        res.writeHead(500, { "Content-Type": "text/plain" });
                         return res.end("Failed to fetch SVG");
                     }
 
@@ -70,7 +74,7 @@ var server = http.createServer(function (req, res) {
                 });
 
             } catch (e) {
-                res.writeHead(400);
+                res.writeHead(400, { "Content-Type": "text/plain" });
                 res.end("Invalid JSON");
             }
 
@@ -79,11 +83,17 @@ var server = http.createServer(function (req, res) {
         return;
     }
 
-    res.writeHead(404);
+    res.writeHead(404, { "Content-Type": "text/plain" });
     res.end("Not Found");
 
 });
 
-server.listen(3000, function () {
-    console.log("Server running at http://localhost:3000");
+/* ============================= */
+/* START SERVER  (THIS WAS MISSING) */
+/* ============================= */
+
+var PORT = process.env.PORT || 3000;
+
+server.listen(PORT, function () {
+    console.log("Server running on port", PORT);
 });
