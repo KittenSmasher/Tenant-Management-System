@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>POC Tenant Management</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,38 +20,54 @@
     <div class="container">
         <div class="form">
 
-            <div class="status" id="spotStatus">No spot selected</div>
 
-            <label>Branch</label>
-            <select id="branch">
-                <option value="">Select Branch</option>
-            </select>
-
-            <label>Brand</label>
-            <select id="brand">
-                <option value="">Select Brand</option>
-            </select>
-
-            <label>Category</label>
-            <select id="category" disabled>
-                <option value="">Select Category</option>
-            </select>
-
-            <label>Supplier</label>
-            <select id="supplier">
-                <option value="">Select Supplier</option>
-            </select>
-
-            <label>Rent Period</label>
-            <div class="rent-period">
-                <input type="date" id="rentStart">
-                <input type="date" id="rentEnd">
+            <div class="form-header">
+                <h3>Tenant Details</h3>
+                <div class="status" id="spotStatus">
+                    No spot selected
+                </div>
             </div>
 
-            <label>Remarks</label>
-            <textarea id="remarks" placeholder="Remarks"></textarea>
+            <form id="tenantForm" class="tenant-form">
+                <label>Branch</label>
+                <select id="branch">
+                    <option value="">Select Branch</option>
+                </select>
 
-            <button id="saveBtn">Save Tenant</button>
+                <label>Brand</label>
+                <select id="brand">
+                    <option value="">Select Brand</option>
+                </select>
+
+                <label>Category</label>
+                <select id="category" disabled>
+                    <option value="">Select Category</option>
+                </select>
+
+                <label>Supplier</label>
+                <select id="supplier">
+                    <option value="">Select Supplier</option>
+                </select>
+
+                <label>Rent Period</label>
+                <div class="rent-period">
+                    <input type="date" id="rentStart">
+                    <input type="date" id="rentEnd">
+                </div>
+
+                <label>Income (IDR)</label>
+                <input type="text" id="income" placeholder="Rp 0" inputmode="numeric" />
+
+                <label>Remarks</label>
+                <textarea id="remarks" placeholder="Remarks"></textarea>
+
+            </form>
+
+            <div class="form-actions">
+                <button type="button" id="saveBtn" class="btn primary">Save Tenant</button>
+                <button type="button" id="removeBtn" class="btn danger">Remove Tenant</button>
+            </div>
+
         </div>
 
         <div id="svgMap"></div>

@@ -27,59 +27,138 @@ body {
     gap: 30px;
 }
 
-
-/* FORM */
 .form {
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 8px;
-    width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-header {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
 }
 
-.form label {
-    font-size: 12px;
-    color: #555;
+.form-header h3 {
+    margin: 0;
+    font-size: 16px;
 }
 
-.form input,
-.form select,
-.form textarea {
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+.form-actions {
+  display: flex;
+  justify-content: center;   
+  gap: 12px;
+  margin-top: 20px;
+}
+
+
+.status {
+    padding: 10px;
+    background: #f1f2f6;
+    font-weight: 600;
+}
+
+
+.tenant-form {
+    max-width: 400px;
+    padding: 60px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+.tenant-form label {
+    display: block;
+    margin: 14px 0 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2d3436;
+}
+
+.tenant-form select,
+.tenant-form input,
+.tenant-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #dfe6e9;
     font-size: 14px;
+    background: #fff;
+    transition: all 0.2s ease;
 }
 
-.form textarea {
+.tenant-form textarea {
     resize: vertical;
     min-height: 80px;
 }
 
-.rent-period {
-    display: flex;
-    gap: 8px;
+.tenant-form select:focus,
+.tenant-form input:focus,
+.tenant-form textarea:focus {
+    outline: none;
+    border-color: #74b9ff;
+    box-shadow: 0 0 0 2px rgba(116, 185, 255, 0.15);
 }
 
+.tenant-form select:disabled {
+    background: #f5f6fa;
+    color: #616769;
+}
+
+.rent-period {
+    display: flex;
+    gap: 10px;
+}
+
+.rent-period input {
+    flex: 1;
+}
+
+/* STATUS BADGE */
 .status {
-    background: #f3f3f3;
-    padding: 8px;
-    border-radius: 4px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
     font-size: 13px;
+    font-weight: 600;
+    background: #f1f2f6;
+    color: #2d3436;
     text-align: center;
 }
 
-button {
-    padding: 10px;
-    background: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+/* WHEN SPOT SELECTED */
+.status.active {
+    background: #dff9fb;
+    color: #0984e3;
 }
 
-button:hover {
-    background: #1e4ed8;
+/* SAVE BUTTON */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.btn {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn.primary {
+    background: #0984e3;
+    color: white;
+}
+
+.btn.danger {
+    background: #d63031;
+    color: white;
+}
+
+.btn:disabled {
+    background: #b2bec3;
+    cursor: not-allowed;
 }
