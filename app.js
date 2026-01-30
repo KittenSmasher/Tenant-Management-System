@@ -274,7 +274,6 @@ function setupBrandCategoryLink() {
       opt.text = brand.category_name;
       categorySelect.appendChild(opt);
       categorySelect.value = brand.category_id;
-      categorySelect.disabled = false;
     } else {
       categorySelect.disabled = true;
     }
