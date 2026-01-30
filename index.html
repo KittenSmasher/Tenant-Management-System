@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Lotte Tenant Management</title>
+    <title>POC Tenant Management</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    
+
     <div class="dashboard">
         <div class="card">Total Spots<br><strong id="totalSpots"></strong></div>
         <div class="card">Rented Spots<br><strong id="rentedSpots"></strong></div>
@@ -17,23 +17,47 @@
     </div>
 
     <div class="container">
-
-        <object id="svgMap" data="map-layout.svg" type="image/svg+xml"></object>
-
         <div class="form">
+
             <div class="status" id="spotStatus">No spot selected</div>
-            <input id="category" placeholder="Category">
-            <input id="brand" placeholder="Brand">
-            <input id="supplier" placeholder="Supplier">
-            <input id="rentPeriod" placeholder="Rent Period">
-            <input id="income" type="number" placeholder="Income (IDR)">
+
+            <label>Branch</label>
+            <select id="branch">
+                <option value="">Select Branch</option>
+            </select>
+
+            <label>Brand</label>
+            <select id="brand">
+                <option value="">Select Brand</option>
+            </select>
+
+            <label>Category</label>
+            <select id="category" disabled>
+                <option value="">Select Category</option>
+            </select>
+
+            <label>Supplier</label>
+            <select id="supplier">
+                <option value="">Select Supplier</option>
+            </select>
+
+            <label>Rent Period</label>
+            <div class="rent-period">
+                <input type="date" id="rentStart">
+                <input type="date" id="rentEnd">
+            </div>
+
+            <label>Remarks</label>
             <textarea id="remarks" placeholder="Remarks"></textarea>
+
             <button id="saveBtn">Save Tenant</button>
         </div>
 
+        <div id="svgMap"></div>
+
     </div>
 
-    <script src="app.js"></script>
 </body>
+<script src="app.js"></script>
 
 </html>
