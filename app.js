@@ -10,8 +10,8 @@ var svgContainer = document.getElementById("svgMap");
 const isDev = location.origin.includes("app-dev.mekari.com");
 
 const API_BASE = isDev
-  ? "https://api-officeless-dev.mekari.com/28086/"
-  : "https://api-officeless.mekari.com/28086/";
+  ? "https://api-officeless-dev.mekari.com/28086"
+  : "https://api-officeless.mekari.com/28086";
 
 console.log("ENV:", isDev ? "dev" : "prod");
 console.log("API_BASE:", API_BASE);
