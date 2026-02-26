@@ -7,7 +7,15 @@ var brandMaster = [];
 var svgContainer = document.getElementById("svgMap");
 
 // API Configuration
-var API_BASE = "https://api-officeless.mekari.com/28086/";
+const API_BASE = (() => {
+  const isDev =
+    window.location.href.includes("dev") ||
+    window.location.origin.includes("dev");
+
+  return isDev
+    ? "https://api-officeless-dev.mekari.com/28086/"
+    : "https://api-officeless.mekari.com/28086/";
+})();
 
 // ============================================================================
 // INITIALIZATION
